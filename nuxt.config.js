@@ -1,4 +1,4 @@
-// При изменении перезапустить сборку вручную
+// При изменении файла перезапустить сборку вручную
 
 module.exports = {
   mode: 'universal',
@@ -14,43 +14,33 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
+
+  // Прогресс бар
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
+
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+
+    // Наш добавленный файл
+    '@/theme/index.scss'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
+ 
+  // В плагинах установка UI фреймворка
   plugins: [
     '@/plugins/globals'
   ],
-  /*
-  ** Nuxt.js modules
-  */
+  
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
+
+  // Конфигурация axios
   axios: {
   },
-  /*
-  ** Build configuration
-  */
+
   build: {
     transpile: [/^element-ui/],
-    /*
-    ** You can extend webpack config here
-    */
+
     extend(config, ctx) {
     }
   }
