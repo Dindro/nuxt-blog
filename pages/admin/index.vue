@@ -5,6 +5,7 @@
 <script>
 export default {
 	// Название layout куда рендерить данную страницу
-	layout: 'admin'
+	layout: 'admin',
+	middleware: ['admin-auth']
 }
 </script>
