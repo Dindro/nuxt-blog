@@ -17,7 +17,7 @@
     <footer class="post-footer">
       <el-button round @click="openPost">Открыть</el-button>
       <span>
-        <i class="el-icon-s-comment"></i>
+        <i class="el-icon-chat-square"></i>
         12
       </span>
     </footer>

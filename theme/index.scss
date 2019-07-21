@@ -17,3 +17,27 @@ html, body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
+
+// Анимации при переходе между страницами
+.page-enter-active,
+.page-leave-active {
+    transition: opacity .3s;
+}
+
+.page-enter,
+.page-leave-active {
+    opacity: 0;
+}
+
+// Стили часто используемые
+.text-center {
+    text-align: center;
+}
+
+.mb {
+    margin-bottom: 1rem;
+}
+
+.mb2 {
+    margin-bottom: 2rem;
+}
