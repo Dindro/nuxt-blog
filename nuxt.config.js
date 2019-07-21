@@ -16,7 +16,7 @@ module.exports = {
   },
 
   // Прогресс бар
-  loading: { color: '#fff' },
+  loading: { color: '#66b1ff' },
 
   css: [
     'element-ui/lib/theme-chalk/index.css',
