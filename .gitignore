@@ -88,4 +88,4 @@ sw.*
 .DS_Store
 
 # Dev ключи
-server/keys/keys.dev.js
+# server/keys/keys.dev.js
