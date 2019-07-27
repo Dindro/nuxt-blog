@@ -2,7 +2,7 @@
 
 module.exports = {
   mode: 'universal',
- 
+
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -24,19 +24,26 @@ module.exports = {
     // Наш добавленный файл
     '@/theme/index.scss'
   ],
- 
+
   // В плагинах установка UI фреймворка и не только
   plugins: [
     '@/plugins/globals',
     '@/plugins/axios'
   ],
-  
+
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/pwa'
   ],
+
+  // Опции PWA
+  workbox: {
+    
+  },
 
   // Конфигурация axios
   axios: {
+
   },
 
   env: {
