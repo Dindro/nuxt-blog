@@ -36,16 +36,11 @@ module.exports = {
     '@nuxtjs/pwa'
   ],
 
-  // Опции PWA
-  workbox: {
-    
-  },
-
   // Конфигурация axios
   axios: {
     // Базовая url
     // process.env.BASE_URL - при продакшн
-    baseURL: process.env.BASE_URL || 'http:/localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   env: {
