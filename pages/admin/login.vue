@@ -20,6 +20,9 @@
 <script>
 export default {
   layout: "empty",
+  head: {
+		title: `Вход в панель администратора | ${process.env.appName}`
+	},
   data() {
     return {
       loading: false,
@@ -62,6 +65,10 @@ export default {
 
 			case 'logout':
 				this.$message.success('Вы успешно вышли из системы')
+        break
+        
+      case 'session':
+				this.$message.warning('Время сессии истекло, пожалуйста зайдите заново')
 				break
 		}
 	},

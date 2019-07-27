@@ -25,9 +25,10 @@ module.exports = {
     '@/theme/index.scss'
   ],
  
-  // В плагинах установка UI фреймворка
+  // В плагинах установка UI фреймворка и не только
   plugins: [
-    '@/plugins/globals'
+    '@/plugins/globals',
+    '@/plugins/axios'
   ],
   
   modules: [
@@ -36,6 +37,10 @@ module.exports = {
 
   // Конфигурация axios
   axios: {
+  },
+
+  env: {
+    appName: 'SSR Blog'
   },
 
   build: {

@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 	},
 	filename(req, file, cb) {
 		// 2 параметр - название файла как будет сохранять (SSS - мс)
-		cb(null, `${file.originalname}-${moment().format('DDMMYYYY-HHmmss_SSS')}`)
+		cb(null, `${moment().format('DDMMYYYY-HHmmss_SSS')}-${file.originalname}`)
 	}
 })
 

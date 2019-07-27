@@ -2,8 +2,8 @@
   <div class="admin-layout-wrap">
     <el-container :style="{ height: '100%' }">
       <el-aside width="250px">
-				<app-aside/>
-			</el-aside>
+        <app-aside />
+      </el-aside>
       <el-main>
         <nuxt />
       </el-main>
@@ -12,12 +12,23 @@
 </template>
 
 <script>
-import AppAside from '@/components/admin/Aside'
+import AppAside from "@/components/admin/Aside";
 
 export default {
-	components: {
-		AppAside
-	}
+  components: {
+    AppAside
+  },
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    }
+  },
+
+  watch: {
+    error(value) {
+      this.$message.error(value.response.data.message);
+    }
+  }
 };
 </script>
 

@@ -11,8 +11,8 @@ const keys = require('./keys')
 
 const app = express()
 
-mongoose.connect(keys.MONGO_URI)
-	.then(()=>console.log('Mongo DB CONNECT'))
+mongoose.connect(keys.MONGO_URI, { useNewUrlParser: true })
+	.then(() => console.log('Mongo DB CONNECT'))
 	.catch(error => console.log(error))
 
 app.use(passport.initialize())
@@ -21,7 +21,7 @@ app.use(passport.initialize())
 passport.use(passportStrategy)
 
 // Устанавливаем в middleware
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/api/auth', authRoutes)

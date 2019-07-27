@@ -2,10 +2,10 @@
   <el-form :model="controls" :rules="rules" ref="form" @submit.native.prevent="onSubmit">
     <h1>Добавить комментарий</h1>
     <el-form-item label="Ваше имя" prop="name">
-      <el-input v-model.trim="controls.name" />
+      <el-input v-model="controls.name" />
     </el-form-item>
     <el-form-item label="Текст комментария" prop="text">
-      <el-input type="textarea" v-model.trim="controls.text" resize="none" :rows="2" />
+      <el-input type="textarea" v-model="controls.text" resize="none" :rows="2" />
     </el-form-item>
     <el-form-item>
       <el-button type="primary" round native-type="submit" :loading="loading">Добавить комментарий</el-button>
@@ -15,6 +15,13 @@
 
 <script>
 export default {
+  props: {
+    postId: {
+      type: String,
+      required: true
+    }
+  },
+
   data() {
     return {
       loading: false,
@@ -42,21 +49,21 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$refs.form.validate(valid => {
+      this.$refs.form.validate(async valid => {
         if (valid) {
 					this.loading = true;
 					
           const formData = {
             name: this.controls.name,
             text: this.controls.text,
-            postId: ""
+            postId: this.postId 
           };
 
-					console.log(formData);
-
           try {
+            const newComment = await this.$store.dispatch('comment/create', formData)
+            console.log(newComment)
             this.$message.success("Комментарий добавлен");
-            this.$emit("created");
+            this.$emit("created", newComment);
           } catch (e) {
             this.loading = false;
           }

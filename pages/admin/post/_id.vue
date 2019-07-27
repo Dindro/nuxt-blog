@@ -6,7 +6,6 @@
     </el-breadcrumb>
 
     <el-form :model="controls" :rules="rules" ref="form" @submit.native.prevent="onSubmit">
-      <!-- <h2>Войти в панель администратора</h2> -->
       <el-form-item label="Текст в формате .md или .html" prop="text">
         <el-input type="textarea" resize="none" :rows="10" v-model.trim="controls.text" />
       </el-form-item>
@@ -14,7 +13,7 @@
       <div class="mb">
         <small class="mr">
           <i class="el-icon-time"></i>
-          <span>{{ new Date(post.date).toLocaleString() }}</span>
+          <span>{{ post.date | date }}</span>
         </small>
 
         <small>
@@ -36,7 +35,7 @@ export default {
   middleware: ["admin-auth"],
   head() {
     return {
-      title: `Пост | ${this.post.title}`
+      title: `${this.post.title} | ${process.env.appName}`
     };
   },
 
@@ -64,6 +63,9 @@ export default {
         ]
       }
     };
+  },
+  mounted() {
+    this.controls.text = this.post.text;
   },
   methods: {
     onSubmit() {
