@@ -4,9 +4,12 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 const passportStrategy = require('./middleware/passport-strategy')
+
+// Роуты
 const authRoutes = require('./routes/auth.routes')
 const postRoutes = require('./routes/post.routes')
 const commentRoutes = require('./routes/comment.routes')
+
 const keys = require('./keys')
 
 const app = express()
