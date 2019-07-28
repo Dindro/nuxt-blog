@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <h1>SSR Blog</h1>
+    <h1>SSR Dindro Blog</h1>
   </nav>
 </template>
 
