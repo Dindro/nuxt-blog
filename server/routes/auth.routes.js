@@ -10,6 +10,10 @@ router.post('/admin/login', login)
 // /api/auth/admin/create
 router.post(
 	'/admin/create',
+	
+	// Проверяется на наличии и валидности токена
+	// 		1 параметр - стратегия к которой относитя
+	// 		2 параметр - { session: false } отключаем поддержку сессии
 	passport.authenticate('jwt', { session: false }),
 	createUser
 )

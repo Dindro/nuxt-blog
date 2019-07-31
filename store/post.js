@@ -1,13 +1,3 @@
-import { create } from "domain";
-
-const posts = [
-	{ title: 'Post 1', date: new Date(), views: 22, comments: [1, 2], _id: 'id1' },
-	{ title: 'Post 2', date: new Date(), views: 22, comments: [1, 2], _id: 'id2' },
-	{ title: 'Post 3', date: new Date(), views: 22, comments: [1, 2], _id: 'id3' },
-	{ title: 'Post 4', date: new Date(), views: 22, comments: [1, 2], _id: 'id4' },
-	{ title: 'Post 5', date: new Date(), views: 22, comments: [1, 2], _id: 'id5' },
-]
-
 export const actions = {
 	async fetchAdmin({ commit }) {
 		try {
