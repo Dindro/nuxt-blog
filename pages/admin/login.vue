@@ -12,6 +12,15 @@
       </div>
       <el-form-item>
         <el-button type="primary" round native-type="submit" :loading="loading">Войти</el-button>
+        <el-button round @click="authSocial('google')">
+          Google
+        </el-button>
+        <el-button round @click="authSocial('facebook')">
+          Facebook
+        </el-button>
+        <el-button round @click="authSocial('vk')">
+          Вконтакте
+        </el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -91,6 +100,10 @@ export default {
           }
         }
       });
+    },
+
+    authSocial(provider) {
+      window.location.replace(`/api/auth/${provider}/start`);
     }
   }
 };

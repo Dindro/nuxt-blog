@@ -32,7 +32,10 @@
     "multer": "^1.4.2",
     "nuxt": "^2.0.0",
     "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.0",
+    "passport-vkontakte": "^0.3.2",
     "vue-chartjs": "^3.4.2",
     "vue-markdown": "^2.2.4"
   },
