@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 const passportStrategy = require('./middleware/passport-strategy')
+const passportGoogleStrategy = require('./middleware/passport-google-strategy')
 
 // Роуты
 const authRoutes = require('./routes/auth.routes')
@@ -22,6 +23,7 @@ app.use(passport.initialize())
 
 // Добавление стратегии
 passport.use(passportStrategy)
+passport.use(passportGoogleStrategy)
 
 // Устанавливаем в middleware
 app.use(bodyParser.urlencoded({ extended: true }))

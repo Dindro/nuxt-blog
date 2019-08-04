@@ -12,7 +12,7 @@ module.exports.login = async (req, res) => {
 		const isPasswordCorrect = bcrypt.compareSync(req.body.password, candidate.password)
 
 		if (isPasswordCorrect) {
-			
+
 			// Генерируем токен
 			// 1 параметр - передаем поля которые хотим зашифровать, в данном случае login, userId
 			// 2 параметр - секретный ключ
@@ -59,4 +59,16 @@ module.exports.createUser = async (req, res) => {
 		// user - уже с уникальным id
 		res.status(201).json(user)
 	}
+}
+
+module.exports.loginGoogle = async (req, res) => {
+	console.log("PROFILE", req.profile)
+	const token = jwt.sign({
+		userId: 2
+	}, keys.JWT, { expiresIn: 60 * 60 })
+
+
+	// Отправляем токен пользователю
+	res.cookie('jwt-token', token);
+	res.redirect('/admin/red');
 }

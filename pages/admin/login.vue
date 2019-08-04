@@ -12,6 +12,10 @@
       </div>
       <el-form-item>
         <el-button type="primary" round native-type="submit" :loading="loading">Войти</el-button>
+        <el-button round @click="authGoogle">
+          <i class="el-icon-eleme"></i>
+          Войти через Google
+        </el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -91,6 +95,10 @@ export default {
           }
         }
       });
+    },
+    async authGoogle() {
+      console.log('Req to /api/auth/google/start');
+      window.location.replace('/api/auth/google/start');
     }
   }
 };

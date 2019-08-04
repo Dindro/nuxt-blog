@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const passport = require('passport')
-const { login, createUser } = require('../controllers/auth.controller')
+const { login, createUser, loginGoogle } = require('../controllers/auth.controller')
 
 const router = Router()
 
@@ -17,5 +17,16 @@ router.post(
 	passport.authenticate('jwt', { session: false }),
 	createUser
 )
+
+// Роутеры для авторизации соц сетей
+router.get(
+	'/google/start',
+	passport.authenticate('google', { session: false, scope: ['openid', 'profile', 'email'] })
+);
+router.get(
+	'/google/redirect',
+	passport.authenticate('google', { session: false }),
+	loginGoogle
+);
 
 module.exports = router
