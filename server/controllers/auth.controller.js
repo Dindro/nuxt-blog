@@ -61,12 +61,12 @@ module.exports.createUser = async (req, res) => {
 	}
 }
 
-module.exports.loginGoogle = async (req, res) => {
-	console.log("PROFILE", req.profile)
-	const token = jwt.sign({
-		userId: 2
-	}, keys.JWT, { expiresIn: 60 * 60 })
+module.exports.loginSocial = (req, res) => {
+	console.log("PROFILE", req.user)
 
+	const token = jwt.sign({
+		userId: req.user
+	}, keys.JWT, { expiresIn: 60 * 60 })
 
 	// Отправляем токен пользователю
 	res.cookie('jwt-token', token);

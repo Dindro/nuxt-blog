@@ -14,7 +14,7 @@ export default {
     //this.$router.push('/');
     const token = Cookies.get('jwt-token')
     this.$store.dispatch("auth/setToken", token);
-    this.$router.push('/');
+    this.$router.push('/admin');
   }
 }
 </script>

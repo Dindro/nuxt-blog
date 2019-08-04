@@ -12,5 +12,10 @@ module.exports = {
 		CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
 		CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
 		CALLBACK_URL: ''
+	},
+	VK: {
+		CLIENT_ID: process.env.VK_CLIENT_ID,
+		CLIENT_SECRET: process.env.VK_CLIENT_SECRET,
+		CALLBACK_URL: ''
 	}
 }

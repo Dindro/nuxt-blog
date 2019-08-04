@@ -10,5 +10,10 @@ module.exports = {
 		CLIENT_ID: '2105357266432527',
 		CLIENT_SECRET: 'add445c05c870e4a3f285daea6abb856',
 		CALLBACK_URL: 'http://localhost:3000/api/auth/facebook/redirect'
+	},
+	VK: {
+		CLIENT_ID: '7082463',
+		CLIENT_SECRET: 'EUHP49RJVYeHwpz7kofc',
+		CALLBACK_URL: 'http://localhost:3000/api/auth/vk/redirect'
 	}
 }

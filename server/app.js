@@ -5,6 +5,8 @@ const passport = require('passport')
 
 const passportStrategy = require('./middleware/passport-strategy')
 const passportGoogleStrategy = require('./middleware/passport-google-strategy')
+const passportFacebookStrategy = require('./middleware/passport-facebook-strategy')
+const passportVKStrategy = require('./middleware/passport-vk-strategy')
 
 // Роуты
 const authRoutes = require('./routes/auth.routes')
@@ -24,6 +26,8 @@ app.use(passport.initialize())
 // Добавление стратегии
 passport.use(passportStrategy)
 passport.use(passportGoogleStrategy)
+passport.use(passportFacebookStrategy)
+passport.use(passportVKStrategy)
 
 // Устанавливаем в middleware
 app.use(bodyParser.urlencoded({ extended: true }))

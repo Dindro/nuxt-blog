@@ -9,18 +9,28 @@ const options = {
 	callbackURL: keys.GOOGLE.CALLBACK_URL
 }
 
-// 2 параметр - функция которая проверяет, есть ли пользователь с таким токеном.
-// (Функция async, потомучто будем делать запрос в БД и будем ожидать через await)
-// 		1 парметр - payload хранит в себе данные зашифрованные в токен.
-//		(В нашем случае - login, userId)
-module.exports = new OAuth2Strategy(options, (request, accessToken, refreshToken, profile, done) => {
+module.exports = new OAuth2Strategy(options, async (request, accessToken, refreshToken, profile, done) => {
 	try {
-		// TODO: 
-		//		Зарегистрировать пользователя в БД
-		console.log('Google account', profile);
-		
-		return done(null, profile)
+		if (profile.emails[0].value == 'dindrophone@gmail.com') {
 
+			const candidate = await User.findOne({ login: 'admin' })
+			const isExist = !!candidate.google.id
+
+			if (!isExist) {
+				const $set = {
+					google: {
+						id: profile.id,
+						name: profile.displayName
+					}
+				}
+				User.findOneAndUpdate({ login: 'admin' }, $set);
+			}
+			const user = candidate._id;
+			console.log(user);
+			return done(null, user)
+		} else {
+			return done(null, false)
+		}
 	} catch (e) {
 		console.error(e);
 	}

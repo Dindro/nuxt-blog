@@ -10,6 +10,18 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 		minLength: 6
+	},
+	google: {
+		id: Number,
+		name: String
+	},
+	facebook: {
+		id: Number,
+		name: String
+	},
+	vk: {
+		id: Number,
+		name: String
 	}
 })
 

@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const passport = require('passport')
-const { login, createUser, loginGoogle } = require('../controllers/auth.controller')
+const { login, createUser, loginSocial } = require('../controllers/auth.controller')
 
 const router = Router()
 
@@ -26,7 +26,27 @@ router.get(
 router.get(
 	'/google/redirect',
 	passport.authenticate('google', { session: false }),
-	loginGoogle
+	loginSocial
+);
+
+router.get(
+	'/facebook/start',
+	passport.authenticate('facebook', { session: false, scope:'email' })
+);
+router.get(
+	'/facebook/redirect',
+	passport.authenticate('facebook', { session: false }),
+	loginSocial
+);
+
+router.get(
+	'/vk/start',
+	passport.authenticate('vkontakte', { session: false, scope:'email' })
+);
+router.get(
+	'/vk/redirect',
+	passport.authenticate('vkontakte', { session: false }),
+	loginSocial
 );
 
 module.exports = router
