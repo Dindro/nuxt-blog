@@ -5,7 +5,7 @@
       <small>
         <i class="el-icon-time"></i>
         <!-- Применение фильтра -->
-        {{ post.date | date('date') }}
+        <span>{{ post.date | date('date') }}</span>
       </small>
     </header>
     <div class="post-body">
@@ -56,10 +56,6 @@ export default {
 .post-img {
   width: 100%;
   height: auto;
-}
-
-.post-body {
-  
 }
 
 .post-footer {
