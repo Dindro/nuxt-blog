@@ -62,13 +62,12 @@ module.exports.createUser = async (req, res) => {
 }
 
 module.exports.loginSocial = (req, res) => {
-	console.log("PROFILE", req.user)
-
+	// Генерируем токен
 	const token = jwt.sign({
 		userId: req.user
 	}, keys.JWT, { expiresIn: 60 * 60 })
 
-	// Отправляем токен пользователю
+	// Прописываем токен в куки
 	res.cookie('jwt-token', token);
-	res.redirect('/admin/red');
+	res.redirect('/admin');
 }

@@ -25,8 +25,8 @@ module.exports = new OAuth2Strategy(options, async (request, accessToken, refres
 				}
 				User.findOneAndUpdate({ login: 'admin' }, $set);
 			}
+
 			const user = candidate._id;
-			console.log(user);
 			return done(null, user)
 		} else {
 			return done(null, false)

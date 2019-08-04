@@ -12,12 +12,11 @@ const options = {
 
 module.exports = new Strategy(options, async (request, accessToken, refreshToken, profile, done) => {
 	try {
-		console.log(profile)
 		if (profile.emails[0].value == 'dindrophone@gmail.com') {
 
 			const candidate = await User.findOne({ login: 'admin' })
 			const isExist = !!candidate.facebook.id
-			console.log(isExist)
+
 			if (!isExist) {
 				const $set = {
 					facebook: {
@@ -27,8 +26,8 @@ module.exports = new Strategy(options, async (request, accessToken, refreshToken
 				}
 				await User.findOneAndUpdate({ login: 'admin' }, $set);
 			}
+
 			const user = candidate._id;
-			console.log(user);
 			return done(null, user)
 		} else {
 			return done(null, false)

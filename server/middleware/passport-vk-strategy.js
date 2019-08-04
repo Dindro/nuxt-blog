@@ -24,8 +24,8 @@ module.exports = new Strategy(options, async (accessToken, refreshToken, params,
 				}
 				await User.findOneAndUpdate({ login: 'admin' }, $set);
 			}
+			
 			const user = candidate._id;
-			console.log(user);
 			return done(null, user)
 		} else {
 			return done(null, false)

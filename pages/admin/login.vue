@@ -101,8 +101,8 @@ export default {
         }
       });
     },
-    async authSocial(provider) {
-      console.log(`Req to /api/auth/${provider}/start`);
+
+    authSocial(provider) {
       window.location.replace(`/api/auth/${provider}/start`);
     }
   }
